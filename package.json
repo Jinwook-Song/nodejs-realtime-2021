@@ -1,0 +1,23 @@
+{
+  "name": "nodejs-realtime-2021",
+  "version": "1.0.0",
+  "description": "Realtime Drawing Game built with SocketIO, Gulp and Node",
+  "main": "index.js",
+  "scripts": {
+    "dev:server": "nodemon --legacy-watch --exec babel-node src/server"
+  },
+  "author": "jinwook-song",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/cli": "^7.13.16",
+    "@babel/core": "^7.14.0",
+    "@babel/node": "^7.13.13",
+    "@babel/preset-env": "^7.14.0",
+    "nodemon": "^2.0.7"
+  },
+  "dependencies": {
+    "core-js": "^3.11.1",
+    "express": "^4.17.1",
+    "socket.io": "^4.0.1"
+  }
+}
