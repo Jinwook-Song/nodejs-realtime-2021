@@ -1,5 +1,7 @@
 /* eslint-disable no-undef */
 /* eslint-disable no-unused-vars */
+import { handleMessageNotif } from "./chat";
+
 const socket = io("/");
 const sendMessage = (message) => {
   socket.emit("newMessage", { message });
@@ -8,11 +10,6 @@ const sendMessage = (message) => {
 
 const setNickname = (nickname) => {
   socket.emit("setNickname", { nickname });
-};
-
-const handleMessageNotif = (data) => {
-  const { message, nickname } = data;
-  console.log(`${nickname} said: ${message}`);
 };
 
 socket.on("messageNotif", handleMessageNotif);
