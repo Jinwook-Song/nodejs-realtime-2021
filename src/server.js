@@ -25,4 +25,5 @@ const server = app.listen(PORT, handleListening);
 // http 서버에 socketIO 서버를 올림, Traffic이 달라서 같은 PORT 사용 가능
 const io = socketIO(server);
 
-io.on("connection", (socket) => socketController(socket));
+// 연결되어있는 각 socket
+io.on("connection", (socket) => socketController(socket, io));
