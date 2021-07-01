@@ -19,13 +19,16 @@ const socketController = (socket, io) => {
       inProgress = true;
       leader = chooseLeader();
       word = chooseWord();
-      io.to(leader.id).emit(events.leaderNotification, { word });
-      superBroadcast(events.gameStarted);
+      setTimeout(() => {
+        superBroadcast(events.gameStarted);
+        io.to(leader.id).emit(events.leaderNotification, { word });
+      }, 2000);
     }
   };
 
   const endGame = () => {
     inProgress = false;
+    superBroadcast(events.gameEnded);
   };
 
   socket.on(events.setNickname, ({ nickname }) => {
@@ -42,6 +45,10 @@ const socketController = (socket, io) => {
     sockets = sockets.filter((asocket) => asocket.nickname !== socket.nickname);
     if (sockets.length === 1) {
       endGame();
+    } else if (leader) {
+      if (leader.id === socket.id) {
+        endGame;
+      }
     }
     broadcast(events.disconnected, { nickname: socket.nickname });
     sendPlayerUpdate();

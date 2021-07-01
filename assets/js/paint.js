@@ -127,7 +127,9 @@ export const enableCanvas = () => {
 export const hideCanvansControls = () => (controls.style.opacity = 0);
 export const showCanvasControls = () => (controls.style.opacity = 1);
 
+export const resetCanvas = () => fill("#fff");
+
 if (canvas) {
-  enableCanvas();
   canvas.addEventListener("contextmenu", handleCM);
+  hideCanvansControls();
 }
