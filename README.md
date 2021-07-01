@@ -7,4 +7,8 @@ Realtime Drawing Game built with SocketIO, Gulp and Node
 - [x] Server
 - [x] Pug
 - [x] Static
-- [ ] SocketIO
+- [x] SocketIO
+
+## Code challenge:
+
+- [ ] Clock
