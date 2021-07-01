@@ -124,8 +124,8 @@ export const enableCanvas = () => {
   canvas.addEventListener("click", handleCanvasClick);
 };
 
-export const hideCanvansControls = () => (controls.style.opacity = 0);
-export const showCanvasControls = () => (controls.style.opacity = 1);
+export const hideCanvansControls = () => (controls.style.display = "none");
+export const showCanvasControls = () => (controls.style.display = "flex");
 
 export const resetCanvas = () => fill("#fff");
 
